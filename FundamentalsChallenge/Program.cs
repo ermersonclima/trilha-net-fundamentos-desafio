@@ -1,26 +1,25 @@
-﻿using DesafioFundamentos.Models;
+﻿using FundamentalsChallenge.Models;
 
-// Coloca o encoding para UTF8 para exibir acentuação
 Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-decimal precoInicial = 0;
-decimal precoPorHora = 0;
+decimal startingPrice = 0;
+decimal perHourPrice = 0;
 
 Console.WriteLine("Seja bem vindo ao sistema de estacionamento!\n" +
                   "Digite o preço inicial:");
-precoInicial = Convert.ToDecimal(Console.ReadLine());
+startingPrice = Convert.ToDecimal(Console.ReadLine());
 
 Console.WriteLine("Agora digite o preço por hora:");
-precoPorHora = Convert.ToDecimal(Console.ReadLine());
+perHourPrice = Convert.ToDecimal(Console.ReadLine());
 
 // Instancia a classe Estacionamento, já com os valores obtidos anteriormente
-Estacionamento es = new Estacionamento(precoInicial, precoPorHora);
+ParkingLot parkingLot = new ParkingLot(startingPrice, perHourPrice);
 
-string opcao = string.Empty;
-bool exibirMenu = true;
+string selectedOption = string.Empty;
+bool hasToShowMenu = true;
 
 // Realiza o loop do menu
-while (exibirMenu)
+while (hasToShowMenu)
 {
     Console.Clear();
     Console.WriteLine("Digite a sua opção:");
@@ -32,19 +31,19 @@ while (exibirMenu)
     switch (Console.ReadLine())
     {
         case "1":
-            es.AdicionarVeiculo();
+            parkingLot.AddVehicle();
             break;
 
         case "2":
-            es.RemoverVeiculo();
+            parkingLot.RemoveVehicle();
             break;
 
         case "3":
-            es.ListarVeiculos();
+            parkingLot.ListVehicles();
             break;
 
         case "4":
-            exibirMenu = false;
+            hasToShowMenu = false;
             break;
 
         default:

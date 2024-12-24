@@ -5,7 +5,7 @@ Este pequeno trabalho é uma proposta desafio da trilha .NET da [DIO](www.dio.me
 
 ## Proposta
 Construir uma classe chamada "Estacionamento", conforme o diagrama abaixo:
-![Diagrama de classe estacionamento](diagrama_classe_estacionamento.png)
+![Diagrama de classe estacionamento](parking_lot_class_diagram.png)
 
 A classe contém três variáveis, sendo:
 
