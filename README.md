@@ -7,6 +7,8 @@ Este pequeno trabalho é uma proposta desafio da trilha .NET da [DIO](www.dio.me
 Construir uma classe chamada "Estacionamento", conforme o diagrama abaixo:
 ![Diagrama de classe estacionamento](parking_lot_class_diagram.png)
 
+*Obs: no código, os nomes de métodos, arquivos e variáveis estão em inglês.*
+
 A classe contém três variáveis, sendo:
 
 **precoInicial**: Tipo decimal. É o preço cobrado para deixar seu veículo estacionado.
