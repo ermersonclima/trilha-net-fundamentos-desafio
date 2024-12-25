@@ -2,26 +2,40 @@
 
 Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-decimal startingPrice = 0;
-decimal perHourPrice = 0;
+bool isParseableToDecimal(string input)
+{
+    decimal result;
+    return decimal.TryParse(input, out result);
+}
 
 Console.WriteLine("Seja bem vindo ao sistema de estacionamento!\n" +
                   "Digite o preço inicial:");
-startingPrice = Convert.ToDecimal(Console.ReadLine());
+string startingPriceInput = Console.ReadLine();
+
+if (!isParseableToDecimal(startingPriceInput))
+{
+    Console.WriteLine("O valor digitado não é válido. Encerrando programa.");
+    Environment.Exit(0);
+}
+decimal startingPrice = Convert.ToDecimal(startingPriceInput);
 
 Console.WriteLine("Agora digite o preço por hora:");
-perHourPrice = Convert.ToDecimal(Console.ReadLine());
+string perHourPriceInput = Console.ReadLine();
 
-// Instancia a classe Estacionamento, já com os valores obtidos anteriormente
+if (!isParseableToDecimal(perHourPriceInput))
+{
+    Console.WriteLine("O valor digitado não é válido. Encerrando programa.");
+    Environment.Exit(0);
+}
+decimal perHourPrice = Convert.ToDecimal(perHourPriceInput);
+
 ParkingLot parkingLot = new ParkingLot(startingPrice, perHourPrice);
 
 string selectedOption = string.Empty;
 bool hasToShowMenu = true;
 
-// Realiza o loop do menu
 while (hasToShowMenu)
 {
-    Console.Clear();
     Console.WriteLine("Digite a sua opção:");
     Console.WriteLine("1 - Cadastrar veículo");
     Console.WriteLine("2 - Remover veículo");
@@ -47,12 +61,11 @@ while (hasToShowMenu)
             break;
 
         default:
-            Console.WriteLine("Opção inválida");
+            Console.WriteLine("Opção inválida.");
             break;
     }
 
-    Console.WriteLine("Pressione uma tecla para continuar");
-    Console.ReadLine();
+    Console.WriteLine("Pressione uma tecla para continuar.");
 }
 
-Console.WriteLine("O programa se encerrou");
+Console.WriteLine("O programa se encerrou.");
